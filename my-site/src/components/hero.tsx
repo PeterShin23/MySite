@@ -3,13 +3,24 @@ import * as React from 'react';
 import { Colors } from '../utils/colors';
 import github from '../static/github.svg';
 import linkedin from '../static/linkedin.svg';
+import { minContainerWidth } from '../constants/constants';
 
-export const HeroContainer = () => {
+type HeroContainerProps = {
+  containerHeight: number;
+}
+
+export const HeroContainer: React.FC<HeroContainerProps> = (props: HeroContainerProps): JSX.Element => {
+  const { containerHeight } = props;
 
 	return (
-        <div className="container flex flex-row max-w-full min-h-screen" style={{
-          backgroundColor: Colors.TeaGreen, 
-          minWidth: '712px'}}>
+        <div 
+          className="container flex flex-row max-w-full" 
+          style={{
+            backgroundColor: Colors.TeaGreen, 
+            minWidth: minContainerWidth,
+            minHeight: containerHeight,
+          }}
+        >
             <div className="flex flex-col w-1/2 justify-center">
                 <div className="flex flex-row justify-center text-7xl font-bold font-sans">
                     <div className="text-slate-200">
@@ -36,6 +47,7 @@ export const HeroContainer = () => {
                 </div>
             </div>
             <div className="flex flex-col w-1/2 justify-center p-4">
+              Stuff in here should not get squished
             </div>
         </div>
     )
