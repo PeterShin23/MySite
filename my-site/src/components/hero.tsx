@@ -7,7 +7,7 @@ import linkedin from '../static/linkedin.svg';
 export const HeroContainer = () => {
 
 	return (
-        <div className="container flex flex-row max-w-full h-screen" style={{
+        <div className="container flex flex-row max-w-full min-h-screen" style={{
           backgroundColor: Colors.TeaGreen, 
           minWidth: '712px'}}>
             <div className="flex flex-col w-1/2 justify-center">
@@ -35,27 +35,8 @@ export const HeroContainer = () => {
                     </a>
                 </div>
             </div>
-            <div className="flex flex-col w-1/2 justify-center p-8">
+            <div className="flex flex-col w-1/2 justify-center p-4">
             </div>
         </div>
     )
 }
-
-const welcomeStyles = {
-    pageStyle: {
-        backgroundColor: Colors.AshGray,
-        padding: '1rem',
-        width: '100%',
-        height: '100vh', // 100 view port height
-    },
-    cardStyle: {
-        padding: '0.5rem',
-        width: '40vw',
-        borderRadius: '10px',
-        boxShadow: `0 2px 10px ${Colors.AshGrayShadow}, 0 2px 2px -4px ${Colors.AshGrayShadow}`  
-    },
-    cardTextStyle: {
-        textAlign: 'left' as 'left', // textAlign type has to be cast to more specific type for some reason
-        margin: '0.5rem'
-    }
-};
