@@ -1,15 +1,23 @@
 import * as React from 'react';
+import { minContainerWidth } from '../constants/constants';
 
 import { Colors } from '../utils/colors';
-import github from '../static/github.svg';
-import linkedin from '../static/linkedin.svg';
 
-export const TimelineContainer = () => {
+type TimelineContainerProps = {
+  containerHeight: number;
+}
 
+export const TimelineContainer: React.FC<TimelineContainerProps> = (props: TimelineContainerProps): JSX.Element => {
+  const { containerHeight } = props;
 	return (
-        <div className="container flex flex-row max-w-full min-h-screen" style={{
-          backgroundColor: Colors.Cream, 
-          minWidth: '712px'}}>
+        <div 
+          className="container flex flex-row max-w-full" 
+          style={{
+            backgroundColor: Colors.Cream, 
+            minWidth: minContainerWidth,
+            minHeight: containerHeight
+          }}
+        >
             
         </div>
     )
