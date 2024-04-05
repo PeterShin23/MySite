@@ -4,7 +4,7 @@ import { TimelineContainer } from './components/timeline';
 import { headerHeight } from "./constants/constants";
 
 const App = () => {
-  const [containerHeight, setContainerHeight] = React.useState<number>(window.innerHeight - headerHeight);
+  const [containerHeight, setContainerHeight] = React.useState(window.innerHeight - headerHeight);
 
   React.useEffect(() => {
     const handleResize = () => {
