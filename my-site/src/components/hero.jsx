@@ -5,11 +5,7 @@ import github from '../static/github.svg';
 import linkedin from '../static/linkedin.svg';
 import { minContainerWidth } from '../constants/constants';
 
-type HeroContainerProps = {
-  containerHeight: number;
-}
-
-export const HeroContainer: React.FC<HeroContainerProps> = (props: HeroContainerProps): JSX.Element => {
+export const HeroContainer = (props) => {
   const { containerHeight } = props;
 
 	return (

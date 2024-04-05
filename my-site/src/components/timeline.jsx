@@ -3,12 +3,9 @@ import { minContainerWidth } from '../constants/constants';
 
 import { Colors } from '../utils/colors';
 
-type TimelineContainerProps = {
-  containerHeight: number;
-}
-
-export const TimelineContainer: React.FC<TimelineContainerProps> = (props: TimelineContainerProps): JSX.Element => {
+export const TimelineContainer = (props) => {
   const { containerHeight } = props;
+
 	return (
         <div 
           className="container flex flex-row max-w-full" 
