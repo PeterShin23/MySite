@@ -1,30 +1,40 @@
 import * as React from 'react';
+import { motion } from "framer-motion";
 
 import { Colors } from '../utils/colors';
 import github from '../static/github.svg';
 import linkedin from '../static/linkedin.svg';
 import { minContainerWidth } from '../constants/constants';
+import { SpiralHelix } from './spiral-helix';
 
 export const HeroContainer = (props) => {
-  const { containerHeight } = props;
+    const { containerHeight } = props;
 
-	return (
-        <div 
-          className="container flex flex-row max-w-full" 
-          style={{
-            backgroundColor: Colors.TeaGreen, 
-            minWidth: minContainerWidth,
-            minHeight: containerHeight,
-          }}
+    const items = [
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' },
+    { id: 3, name: 'Item 3' },
+    // Add more items as needed
+    ];
+
+    return (
+        <div
+            className="container flex flex-row max-w-full"
+            style={{
+                backgroundColor: Colors.TeaGreen,
+                minWidth: minContainerWidth,
+                minHeight: containerHeight,
+            }}
         >
-            <div className="flex flex-col w-1/2 justify-center">
+            <motion.div 
+                className="flex flex-col w-1/2 justify-center"
+                initial={{ x: -500 }} // Initial position (left)
+                animate={{ x: 0 }}    // Final position (right)
+                transition={{ duration: 1 }} 
+            >
                 <div className="flex flex-row justify-center text-7xl font-bold font-sans">
-                    <div className="text-slate-200">
-                        Peter 
-                    </div>
-                    <div className="text-slate-500">
-                        Shin 
-                    </div>
+                    <div className="text-slate-200">Peter</div>
+                    <div className="text-slate-500">Shin</div>
                 </div>
                 <div className="flex flex-row justify-center items-center ">
                     {/* add a copy to clipboard feature with a toast message*/}
@@ -41,10 +51,14 @@ export const HeroContainer = (props) => {
                         <img className="w-16 h-16 cursor-pointer" src={github} />
                     </a>
                 </div>
-            </div>
-            <div className="flex flex-col w-1/2 justify-center p-4">
-              Stuff in here should not get squished
-            </div>
+            </motion.div>
+            <motion.div className="flex flex-col w-1/2 justify-center items-center p-4"
+                initial={{ y: 500 }} // Initial position (bottom)
+                animate={{ y: 0 }}   // Final position (up)
+                transition={{ duration: 1 }}
+            >
+                <SpiralHelix items={[]} />
+            </motion.div>
         </div>
     )
 }
