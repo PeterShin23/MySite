@@ -1,4 +1,5 @@
 import * as React from "react";
+import { motion } from "framer-motion";
 
 import { events } from "./my-events";
 import { getDateDiff, getWidth } from "./helpers";
@@ -15,6 +16,7 @@ export const HorizontalTimelineView = () => {
   const [selectedEvent, setSelectedEvent] = React.useState(Object.keys(events).length - 1);
   const [eventStartingPosition, setEventStartingPosition] = React.useState({ x: 0, y: 0 });
   const [eventBubbleHover, setEventBubbleHover] = React.useState(null);
+  const [isExpandedCard, setIsExpandedCard] = React.useState(false);
 
   const maxEventTimeDiff = getDateDiff(events[Object.keys(events).length - 1].startDate, events[0].startDate);
 
@@ -28,6 +30,10 @@ export const HorizontalTimelineView = () => {
     const { x, y } = timelineEventRefs.current[index].getBoundingClientRect();
 
     setEventStartingPosition({ x, y });
+  }
+
+  const toggleIsExpandedCard = () => {
+    setIsExpandedCard(!isExpandedCard);
   }
 
   React.useEffect(() => {
@@ -86,9 +92,16 @@ export const HorizontalTimelineView = () => {
           )
         })}
       </div>
-      <div className="flex p-10 justify-center">
-        <TimelineEvent eventStartingPosition={eventStartingPosition} selectedEvent={events[selectedEvent]} />
-      </div>
+      <motion.div 
+        className="flex p-10 justify-center"
+      >
+        <TimelineEvent 
+          eventStartingPosition={eventStartingPosition} 
+          selectedEvent={events[selectedEvent]}
+          isExpandedCard={isExpandedCard}
+          toggleIsExpandedCard={toggleIsExpandedCard}
+         />
+      </motion.div>
     </div>
   )
 }
