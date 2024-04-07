@@ -14,7 +14,7 @@ export const HorizontalTimelineView = () => {
   const [timelineLeftPosition, setTimelineLeftPosition]  = React.useState(0);
   const [selectedEvent, setSelectedEvent] = React.useState(Object.keys(events).length - 1);
   const [eventStartingPosition, setEventStartingPosition] = React.useState({ x: 0, y: 0 });
-  const [redHover, setRedHover] = React.useState(null);
+  const [eventBubbleHover, setEventBubbleHover] = React.useState(null);
 
   const maxEventTimeDiff = getDateDiff(events[Object.keys(events).length - 1].startDate, events[0].startDate);
 
@@ -72,13 +72,15 @@ export const HorizontalTimelineView = () => {
                 onClick={() => onTimelineEventClick(i)}
               >
                 <div 
-                  className={`relative w-6 h-6 rounded-full hover:scale-150 cursor-pointer ${selectedEvent === i || redHover === i ? "scale-150" : ""}`} 
-                  style={{ backgroundColor: Colors.Wenge }} />
+                  className={`relative w-6 h-6 rounded-full cursor-pointer ${selectedEvent === i || eventBubbleHover === i ? "scale-150" : ""}`} 
+                  style={{ backgroundColor: Colors.Wenge }}
+                  onMouseEnter={() => setEventBubbleHover(i)}
+                  onMouseLeave={() => setEventBubbleHover(null)} />
                 <div 
                   className={`absolute w-3 h-3 rounded-full bg-red-300 cursor-pointer ${selectedEvent === i ? "scale-150" : ""}`} 
                   style={{ marginTop: -18, marginLeft: 6 }}
-                  onMouseEnter={() => setRedHover(i)}
-                  onMouseLeave={() => setRedHover(null)} />
+                  onMouseEnter={() => setEventBubbleHover(i)}
+                  onMouseLeave={() => setEventBubbleHover(null)} />
               </div>
             </div>
           )
