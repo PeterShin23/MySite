@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { HeroContainer } from './components/hero';
-import { TimelineContainer } from './components/timeline';
+import { TimelineContainer } from './components/timeline/timeline';
 import { headerHeight } from "./constants/constants";
 
 const App = () => {
