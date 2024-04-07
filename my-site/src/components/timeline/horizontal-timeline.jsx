@@ -69,10 +69,9 @@ export const HorizontalTimelineView = () => {
           const additionalLeftPositioning = getWidth(timelineWidth, maxEventTimeDiff, getDateDiff(ev.startDate, events[0].startDate));
           
           return (
-            <div>
+            <div key={`timeline-event-${i}`}>
               <div 
                 ref={el => timelineEventRefs.current[i] = el}
-                key={`timeline-event-${i}`} 
                 className="absolute -mt-4 -ml-3" 
                 style={{ left: timelineLeftPosition + additionalLeftPositioning + (i === 0 ? 10 : -30) }}
                 onClick={() => onTimelineEventClick(i)}

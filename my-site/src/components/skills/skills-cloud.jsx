@@ -12,6 +12,10 @@ export const SkillsCloud = () => {
 
   return (
     <Cloud 
+      canvasProps={{
+        className: "flex mx-8",
+        style: { width: "100%", maxWidth: "84%"}
+      }}
       // https://www.goat1000.com/tagcanvas-options.php
       options={{
         outlineColour: "#0000",

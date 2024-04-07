@@ -5,10 +5,11 @@ import { HorizontalTimelineView } from './horizontal-timeline';
 import { Colors } from '../../utils/colors';
 
 export const TimelineContainer = (props) => {
-  const { containerHeight } = props;
+  const { id, containerHeight } = props;
 
 	return (
         <div 
+          id={id}
           className="flex max-w-full" 
           style={{
             backgroundColor: Colors.Cream, 
