@@ -19,7 +19,9 @@ export const SkillsCloud = () => {
         wheelZoom: false,
         initial: [0.05, -0.05],
         dragControl: true,
-        minSpeed: 0.01
+        minSpeed: 0.01,
+        imageRadius: 20,
+        shuffleTags: true,
       }}>
       {
         skills.map((skill) => (
