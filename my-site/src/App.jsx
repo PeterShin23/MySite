@@ -17,7 +17,7 @@ const App = () => {
     const clickedTab = document.getElementById(tab);
 
     container.scrollTo({
-      top: clickedTab.getBoundingClientRect().top,
+      top: clickedTab.getBoundingClientRect().top - headerHeight,
       behavior: "smooth",
     });
 
