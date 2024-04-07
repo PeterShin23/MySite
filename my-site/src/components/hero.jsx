@@ -8,10 +8,11 @@ import { minContainerWidth } from '../constants/constants';
 import { MemoizedSkillsCloud } from './skills/skills-cloud';
 
 export const HeroContainer = (props) => {
-    const { containerHeight } = props;
+    const { id, containerHeight } = props;
 
     return (
         <div
+            id={id}
             className="container flex flex-row max-w-full"
             style={{
                 backgroundColor: Colors.TeaGreen,
