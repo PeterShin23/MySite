@@ -9,5 +9,6 @@ export const Colors = {
   TeaGreenLight: '#c5dbbc',
   Cream: '#E7EFC5',
   Parchment:'#F2E8C9',
-  Wenge: '#56494C'
+  Wenge: '#56494C',
+  WengeLight: '#776D6F',
 };

@@ -16,12 +16,13 @@ const App = () => {
 
     const container = document.getElementById(tabEnum.Main); // can't use window.scroll because of overflow properties
 
-    const clickedTab = document.getElementById(tab);
+    const currentTabEl = document.getElementById(currentTab);
+    const clickedTabEl = document.getElementById(tab);
 
-    console.log("tab", tab, clickedTab.getBoundingClientRect().top)
+    const moveY = clickedTabEl.getBoundingClientRect().top - currentTabEl.getBoundingClientRect().top;
 
-    container.scrollTo({
-      top: clickedTab.getBoundingClientRect().top - headerHeight,
+    container.scrollBy({
+      top: moveY,
       behavior: "smooth",
     });
 
