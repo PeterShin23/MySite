@@ -26,7 +26,7 @@ export const HeroContainer = (props) => {
                 animate={{ x: 0 }}    // Final position (right)
                 transition={{ duration: 1 }} 
             >
-                <div className="flex flex-row justify-center text-9xl font-bold font-sans"
+                <div className="flex flex-row justify-center text-9xl font-bold font-sans" style={{ minWidth: 630 }}
                 >
                     <div className="text-slate-200">Peter</div>
                     <div className="text-slate-500">Shin</div>

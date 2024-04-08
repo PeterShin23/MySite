@@ -8,5 +8,6 @@ export const tabEnum = {
   Main: "main-container",
   Home: "hero-container",
   Experiences: "timeline-container",
-  Next: "next-container"
+  Projects: "projects-container",
+  Contact: "contact-container",
 }

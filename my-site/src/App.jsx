@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { HeaderButton } from './components/header-button';
+import { ContactContainer } from './components/contact/contact';
 import { HeroContainer } from './components/hero';
+import { ProjectsContainer } from './components/projects/projects';
 import { TimelineContainer } from './components/timeline/timeline';
 import { headerHeight, tabEnum } from "./constants/constants";
 import { Colors } from './utils/colors';
@@ -14,10 +16,13 @@ const App = () => {
 
     const container = document.getElementById(tabEnum.Main); // can't use window.scroll because of overflow properties
 
-    const clickedTab = document.getElementById(tab);
+    const currentTabEl = document.getElementById(currentTab);
+    const clickedTabEl = document.getElementById(tab);
 
-    container.scrollTo({
-      top: clickedTab.getBoundingClientRect().top - headerHeight,
+    const moveY = clickedTabEl.getBoundingClientRect().top - currentTabEl.getBoundingClientRect().top;
+
+    container.scrollBy({
+      top: moveY,
       behavior: "smooth",
     });
 
@@ -28,7 +33,7 @@ const App = () => {
       
     const tab = document.getElementById(currentTab).getBoundingClientRect()
 
-    console.log((tab.height - headerHeight) + tab.top, containerHeight)
+    // console.log((tab.height - headerHeight) + tab.top, containerHeight)
 
     const ratio = (tab.height - headerHeight + tab.top) / containerHeight;
 
@@ -62,17 +67,28 @@ const App = () => {
             tabEnumValue={tabEnum.Home}
             isCurrentTab={tabEnum.Home === currentTab} 
             handleTabClick={handleTabClick} />
-             <HeaderButton 
+          <HeaderButton 
             tabName="Experiences" 
             tabEnumValue={tabEnum.Experiences}
             isCurrentTab={tabEnum.Experiences === currentTab} 
+            handleTabClick={handleTabClick} />
+          <HeaderButton 
+            tabName="Projects" 
+            tabEnumValue={tabEnum.Projects}
+            isCurrentTab={tabEnum.Projects === currentTab} 
+            handleTabClick={handleTabClick} />
+          <HeaderButton 
+            tabName="Contact Me" 
+            tabEnumValue={tabEnum.Contact}
+            isCurrentTab={tabEnum.Contact === currentTab} 
             handleTabClick={handleTabClick} />
         </div>
       </header>
       <main id="main-container" className="flex-1 overflow-y-auto" onScroll={handleScroll}>
         <HeroContainer id="hero-container" containerHeight={containerHeight} />
         <TimelineContainer id="timeline-container" containerHeight={containerHeight} />
-        <HeroContainer id="next-container" containerHeight={containerHeight} />
+        <ProjectsContainer id="projects-container" containerHeight={containerHeight} />
+        <ContactContainer id="contact-container" containerHeight={containerHeight} />
       </main>
     </div>
   );
