@@ -10,7 +10,6 @@ export const TimelineContainer = (props) => {
 	return (
         <div 
           id={id}
-          name="container"
           className="flex max-w-full" 
           style={{
             backgroundColor: Colors.Cream, 
