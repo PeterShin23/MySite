@@ -7,39 +7,63 @@ import { TimelineContainer } from './components/timeline/timeline';
 import { headerHeight, tabEnum } from "./constants/constants";
 import { Colors } from './utils/colors';
 
+const orderedTabs = [tabEnum.Home, tabEnum.Experiences, tabEnum.Projects, tabEnum.Contact];
+
 const App = () => {
   const [containerHeight, setContainerHeight] = React.useState(window.innerHeight - headerHeight);
   const [currentTab, setCurrentTab] = React.useState(tabEnum.Home);
+  const scrollDirectionRef = React.useRef({
+    position: 0,
+    direction: "down",
+  })
+
+  const snapContainerY = {
+    [tabEnum.Home]: 0,
+    [tabEnum.Experiences]: containerHeight,
+    [tabEnum.Projects]: containerHeight * 2,
+    [tabEnum.Contact]: containerHeight * 3,
+  }
 
   const handleTabClick = (tab) => {
     if (tab === currentTab) return;
 
     const container = document.getElementById(tabEnum.Main); // can't use window.scroll because of overflow properties
 
-    const currentTabEl = document.getElementById(currentTab);
-    const clickedTabEl = document.getElementById(tab);
-
-    const moveY = clickedTabEl.getBoundingClientRect().top - currentTabEl.getBoundingClientRect().top;
-
-    container.scrollBy({
-      top: moveY,
-      behavior: "smooth",
-    });
+    container.scrollTo({
+      top: snapContainerY[tab],
+      behavior: "auto",
+    })
 
     setCurrentTab(tab);
   }
 
   const handleScroll = () => {
-      
-    const tab = document.getElementById(currentTab).getBoundingClientRect()
+    const mainContainer = document.getElementById(tabEnum.Main);
 
-    // console.log((tab.height - headerHeight) + tab.top, containerHeight)
+    let direction = mainContainer.scrollTop - scrollDirectionRef.current.position >= 0 ? "down" : "up";
 
-    const ratio = (tab.height - headerHeight + tab.top) / containerHeight;
+    scrollDirectionRef.current = { position: mainContainer.scrollTop, direction: direction };
 
-    if (Math.abs(ratio) > 0.4) return;
+    if (direction === "down") {
+      for (let i = 0; i < orderedTabs.length; i++) {
+        if (
+          mainContainer.scrollTop >= (snapContainerY[orderedTabs[i]] + containerHeight / 2) &&
+          i + 1 < orderedTabs.length
+        ) {
+          setCurrentTab(orderedTabs[i+1]);
+        }
 
-    return;
+      }
+    } else {
+      for (let i = orderedTabs.length - 1; i >= 0; i--) {
+        if (
+          mainContainer.scrollTop <= (snapContainerY[orderedTabs[i]] - containerHeight / 2) && 
+          i - 1 > - 1
+        ) {
+          setCurrentTab(orderedTabs[i-1]);
+        }
+      }
+    }
   }
 
   React.useEffect(() => {

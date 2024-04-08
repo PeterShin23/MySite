@@ -13,6 +13,7 @@ export const HeroContainer = (props) => {
     return (
         <div
             id={id}
+            name="container"
             className="container flex flex-row max-w-full"
             style={{
                 backgroundColor: Colors.TeaGreen,
