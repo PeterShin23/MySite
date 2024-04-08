@@ -35,8 +35,8 @@ export const TimelineEvent = (props) => {
       className="border-2 mt-10 p-2 rounded-lg shadow-lg cursor-pointer"
       style={{ 
         minWidth: 516,
-        borderColor: Colors.TeaGreenDark,
-        "--tw-shadow-color": Colors.TeaGreenDark,
+        borderColor: Colors.WengeLight,
+        "--tw-shadow-color": Colors.Wenge,
         "--tw-shadow": "var(--tw-shadow-colored)"
       }}
       initial={{ width: eventWidth }} 
@@ -65,7 +65,7 @@ const TimelineEventInfo = (props) => {
       </div>
       {isExpandedCard && (
         <div className="h-48 relative">
-          <div className="absolute border-l-4 h-28 rounded-lg mr-4 mt-10" style={{ borderColor: Colors.TeaGreenDark }} />
+          <div className="absolute border-l-4 h-28 rounded-lg mr-4 mt-10" style={{ borderColor: Colors.WengeLight }} />
           <div className="flex pl-8 pr-4 h-48">
             {/* {getDescription()} */}
             <motion.div 
