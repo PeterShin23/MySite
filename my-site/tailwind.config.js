@@ -5,11 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      extend: {
-        transitionTimingFunction: {
-          'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
-        },
+      transitionTimingFunction: {
+        'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
+      colors: {
+        "secondary-contact": "#413C58" ,
+      }
     },
   },
   plugins: [],

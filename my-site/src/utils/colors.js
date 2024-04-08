@@ -1,6 +1,7 @@
 /** JS way of doing enums */
 export const Colors = {
   EnglishViolet: '#413C58',
+  EnglishVioletLight: '#CDC5EF',
   AshGray: '#A3C4BC',
   AshGrayShadow: '#283E39',
   TeaGreenDark: '#abc1a2',
