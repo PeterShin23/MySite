@@ -48,7 +48,7 @@ export const events = {
     startDate: "07-01-2023",
     title: "Software Engineer",
     subtitle: "CoStar Group",
-    description: "• Building and improving microservices that facilitate CoStar Group's CRM platform.;;• FE: TypeScript + TailwindCSS;• BE: C#/.NET;• Data: SQL Server and Elastic",
+    description: "• Building and improving microservices that facilitate CoStar Group's CRM platform.;;• FE: React in TypeScript + TailwindCSS;• BE: C#/.NET;• Data: SQL Server and Elastic",
     image: costarBrand,
   },
 };
