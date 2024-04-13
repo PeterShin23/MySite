@@ -1,4 +1,5 @@
 import * as React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const ProjectCard = (props) => {
   const { project } = props;
@@ -6,9 +7,10 @@ export const ProjectCard = (props) => {
   const cardRef = React.useRef(null);
 
   return (
-    <div ref={cardRef} className="flex flex-col border-2 p-4 rounded-lg shadow-lg cursor-pointer size-96">
-      <p>{project.name}</p>
-      <p class="text-sm">{`Using: ${project.stack.join(", ")}`}</p>
-		</div>
+    <div>
+      <div ref={cardRef} className="relative flex flex-col shadow-lg cursor-pointer size-96 bg-white">
+        <img className="size-full" src={project.picture} />
+      </div>
+    </div>
   )
 }
