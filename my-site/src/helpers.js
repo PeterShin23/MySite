@@ -22,7 +22,7 @@ export const headerColorMapper = (tab) => {
     }
   } else if (tab === tabEnum.Contact) {
     return {
-      backgroundColor: Colors.Parchment,
+      backgroundColor: Colors.EnglishVioletLight,
       headerFontColor: Colors.WengeLight,
       selectedHeaderColor: Colors.Wenge,
     }

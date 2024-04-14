@@ -20,7 +20,7 @@ export const TimelineContainer = (props) => {
       <div className="flex flex-col">
         <div className="flex flex-row px-20 py-10">
           <div className="text-7xl font-bold font-sans" style={{ color: Colors.Wenge }}>Experiences</div>
-          <div className="flex items-center ml-auto">Use Arrow keys to navigate</div>
+          <div className="flex items-center ml-auto"></div>
         </div>
         <HorizontalTimelineView />
       </div>
