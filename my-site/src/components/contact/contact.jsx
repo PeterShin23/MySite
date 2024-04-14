@@ -90,7 +90,7 @@ export const ContactContainer = (props) => {
                 <div className="flex flex-row px-20 pt-10">
                     <div className="text-7xl font-bold font-sans text-slate-300">Get in contact!</div>
                 </div>
-                <div className="px-20 py-10">
+                <div className="flex flex-col px-20 py-10 h-full justify-center">
                     <label className="flex flex-col mb-8">
                         <span className="text-white font-medium text-sm ml-2 mb-2">Your Name</span>
                         <input 

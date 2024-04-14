@@ -42,9 +42,9 @@ export const ProjectsContainer = (props) => {
 					<div className="text-7xl font-bold font-sans" style={{ color: Colors.SunOrange }}>Projects</div>
 					<div className="flex ml-auto"></div>
         </div>
-				<div className="relative" style={{ width: containerWidth }}>
+				<div className="relative h-full" style={{ width: containerWidth }}>
 					<div 
-						className="flex flex-row p-10 justify-center items-center text-white"
+						className="flex flex-row h-full px-10 pb-10 justify-center items-center text-white"
 					>
 						<motion.div 
 							className="flex flex-col justify-center p-8 w-96">

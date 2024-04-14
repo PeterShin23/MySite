@@ -59,7 +59,7 @@ export const HorizontalTimelineView = () => {
   }, [])
 
   return (
-    <div className="relative" style={{ width: containerWidth }}>
+    <div className="relative h-full" style={{ width: containerWidth }}>
       <div ref={timelineRef} className="flex mt-10 mx-36 h-2 bg-green-800" style={{ backgroundColor: Colors.Wenge }} />
       <div className="absolute" style={{ left: timelineLeftPosition + timelineWidth - 3, marginTop: -20 }}>
         <div className="text-2xl rotate-90" style={{ color: Colors.Wenge }}>&#x25B2;</div>
@@ -91,16 +91,18 @@ export const HorizontalTimelineView = () => {
           )
         })}
       </div>
-      <motion.div 
-        className="flex p-10 justify-center"
-      >
-        <TimelineEvent 
-          eventStartingPosition={eventStartingPosition} 
-          selectedEvent={events[selectedEvent]}
-          isExpandedCard={isExpandedCard}
-          toggleIsExpandedCard={toggleIsExpandedCard}
-         />
-      </motion.div>
+      <div className="h-full">
+        <motion.div 
+          className="flex p-10 justify-center"
+          >
+          <TimelineEvent 
+            eventStartingPosition={eventStartingPosition} 
+            selectedEvent={events[selectedEvent]}
+            isExpandedCard={isExpandedCard}
+            toggleIsExpandedCard={toggleIsExpandedCard}
+            />
+        </motion.div>
+      </div>
     </div>
   )
 }
